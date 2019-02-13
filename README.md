@@ -1,6 +1,6 @@
 # fresh-friday-node-intro
 
-(slides)[https://docs.google.com/presentation/d/1-I7LWTOqWAy_FPJ5-cnCaqbhabeAGNHhXkKuMgwfeV4/edit?usp=sharing]
+[slides](https://docs.google.com/presentation/d/1-I7LWTOqWAy_FPJ5-cnCaqbhabeAGNHhXkKuMgwfeV4/edit?usp=sharing)
 
 1. understand how to do fun stuff with console.log
 2. reading files
