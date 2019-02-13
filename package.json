@@ -1,7 +1,7 @@
 {
   "name": "test",
   "version": "1.0.0",
-  "main": "4_hello-server/express/index.js",
+  "main": "4_hello-server/express-rest/index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
