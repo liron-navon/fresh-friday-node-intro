@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <title>WebSocket Test</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.0/css/bootstrap.min.css"
+          integrity="sha384-PDle/QlgIONtM1aqA2Qemk5gPOE7wFq8+Em+G/hmo5Iq0CCmYZLv3fVRDJ4MMwEA" crossorigin="anonymous">
+    <style>
+        body {
+            height: 100vh;
+        }
+
+        #section1 {
+            max-width: 600px;
+            margin: 200px auto auto auto;
+        }
+
+        #section2 {
+            max-width: 600px;
+            margin: auto;
+            padding: 10px;
+            display: none;
+        }
+
+        .btn {
+            margin-top: 10px;
+        }
+
+        .date-item {
+            font-size: 10px;
+            color: grey;
+            opacity: 0.5;
+        }
+    </style>
+</head>
+<body>
+
+<section id="section1">
+    <div class="card text-center">
+        <div class="card-body">
+            <h5 class="card-title">Please login</h5>
+
+            <div class="form-group">
+                <label for="usernameInput">Name</label>
+                <input id="usernameInput"
+                       class="form-control"
+                       type="text"
+                       placeholder="name">
+                <button type="button"
+                        class="btn btn-primary"
+                        onclick="initConnection('#usernameInput')">
+                    Login
+                </button>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<section id="section2">
+    <!-- Connected users-->
+    <div class="card">
+        <div class="card-body">
+            <h5 class="card-title">Active users</h5>
+            <div id="usersInChat">
+
+            </div>
+        </div>
+    </div>
+
+    <!--Send message-->
+    <div class="card text-center">
+        <div class="card-body">
+            <div class="form-group">
+                <input id="messageInput"
+                       class="form-control"
+                       type="text"
+                       placeholder="name">
+                <button type="button"
+                        class="btn btn-primary btn-lg btn-block"
+                        onclick="createMessage('#messageInput')">
+                    Send message
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!--Chat area-->
+    <div class="card">
+        <div class="card-body" id="chatContent">
+            <div class="alert alert-primary" role="alert">
+                A simple primary alert—check it out!
+            </div>
+            <div class="alert alert-primary" role="alert">
+                A simple primary alert—check it out!
+            </div>
+            <div class="alert alert-primary" role="alert">
+                A simple primary alert—check it out!
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<script src="client.js"></script>
+</body>
+</html>
+
+
+
+
+

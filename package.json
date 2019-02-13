@@ -1,0 +1,22 @@
+{
+  "name": "test",
+  "version": "1.0.0",
+  "main": "4_hello-server/express/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.16.4",
+    "express-handlebars": "^3.0.0",
+    "jimp": "^0.6.0",
+    "lowdb": "^1.0.0",
+    "robotjs": "^0.5.1",
+    "uuid": "^3.3.2",
+    "ws": "^6.1.3",
+    "youtube-dl": "^1.12.2"
+  },
+  "devDependencies": {},
+  "description": ""
+}
