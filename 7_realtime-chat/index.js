@@ -121,21 +121,3 @@ server.listen(port, () => {
     console.log('websockets listening on ws://localhost:3000');
     console.log('http listening on http://localhost:3000/');
 });
-
-/*
-{
-    "action": "init",
-    "data": {
-      "user": "john"
-    }
-}
-*/
-
-/*
-{
-    "action": "new",
-    "data": {
-     "text": "hello john"
-    }
-}
-*/
