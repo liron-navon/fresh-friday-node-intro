@@ -1,5 +1,5 @@
 /**
-    Write a script that will ask for a "colors array", a "number" and a "character".
+    Write a script that will ask for a "colors array" separated by commas, a "number" and a "character".
     Print lines by the number, with the given color and character:
 
     It's OK to allow only two color options.
@@ -23,3 +23,10 @@
     for example - 
     Red FG code 32, escaped for terminal: \x1b[31m
  */
+
+ // transforms " green,red " to ["green", "red"]
+ function commaSeparatedStringToArray(commaSeperatedString){
+     const withNoSpaces = commaSeparatedString.replace(/ +/g);
+     const array = withNoSpaces.split(',');
+     return array;
+ }
