@@ -6,6 +6,5 @@
     - get the person back by specifying his age
     - delete the person
 
-
     * CRUD stands for: Create, Read, Update, Delete
  */
