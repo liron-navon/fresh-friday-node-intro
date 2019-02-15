@@ -36,13 +36,19 @@ const eventHandlers = {
     // when we initiate the session
     initialMessages({data}) {
         const {users, messages} = data;
-        chatContentContainer.innerHTML = messages.map((msg) => messageToHTML(msg)).join('');
+        if (messages.length > 0) {
+            chatContentContainer.innerHTML = messages.map((msg) => messageToHTML(msg)).join('');
+        }
         usersInChat = users;
         messagesInChat = messages;
     },
     // when a new message is created
     newMessage({data}) {
-        chatContentContainer.innerHTML = messageToHTML(data) + chatContentContainer.innerHTML;
+        if (messagesInChat.length > 0) {
+            chatContentContainer.innerHTML = messageToHTML(data) + chatContentContainer.innerHTML;
+        } else {
+            chatContentContainer.innerHTML = messageToHTML(data);
+        }
     },
     // when a new user joins
     userJoined({ data }) {
