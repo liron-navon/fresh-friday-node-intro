@@ -18,7 +18,7 @@ module.exports = {
     },
     addMessage(message) {
         return db.get('messages')
-            .push(message)
+            .unshift(message)
             .write();
     }
 };

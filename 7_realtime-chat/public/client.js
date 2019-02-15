@@ -2,6 +2,10 @@ const websocketURL = 'ws://localhost:3000';
 let ws = null;
 let user = null;
 let usersInChat = [];
+const section1 = document.querySelector('#section1');
+const section2 = document.querySelector('#section2');
+const usersInChatContainer = document.querySelector('#usersInChat');
+const chatContentContainer = document.querySelector('#chatContent');
 
 // turn a message object to html
 function messageToHTML(msg) {
@@ -16,7 +20,7 @@ function messageToHTML(msg) {
 
 // update the users in the chat
 function updateUsersInChat() {
-    document.querySelector('#usersInChat').innerHTML = usersInChat.join('<br/>');
+    usersInChatContainer.innerHTML = usersInChat.join('<br/>');
 }
 
 // event handlers to handle socket events
@@ -24,14 +28,12 @@ const eventHandlers = {
     // when we initiate the session
     initialMessages({data}) {
         const {users, messages} = data;
-        const chatContent = document.querySelector('#chatContent');
-        chatContent.innerHTML = messages.map((msg) => messageToHTML(msg)).join('');
+        chatContentContainer.innerHTML = messages.map((msg) => messageToHTML(msg)).join('');
         usersInChat = users;
     },
     // when a new message is created
     newMessage({data}) {
-        const chatContent = document.querySelector('#chatContent');
-        chatContent.innerHTML += messageToHTML(data)
+        chatContentContainer.innerHTML = messageToHTML(data) + chatContentContainer.innerHTML;
     },
     // when a new user joins
     userJoined({ data }) {
@@ -52,8 +54,6 @@ function initConnection(nameSelector) {
 
     // select elements
     user = document.querySelector(nameSelector).value;
-    const section1 = document.querySelector('#section1');
-    const section2 = document.querySelector('#section2');
 
     // switch sections
     section1.style.display = 'none';
@@ -90,11 +90,16 @@ function initConnection(nameSelector) {
 
 // create a new message
 function createMessage(inputSelector) {
-    const message = document.querySelector(inputSelector).value;
-    ws.send(JSON.stringify({
-        action: 'new',
-        data: {
-            text: message
-        }
-    }))
+    const messageInput = document.querySelector(inputSelector);
+    const message = messageInput.value;
+
+    if (message) {
+        messageInput.value = ''; // clear the old message
+        ws.send(JSON.stringify({
+            action: 'new',
+            data: {
+                text: message
+            }
+        }))
+    }
 }
