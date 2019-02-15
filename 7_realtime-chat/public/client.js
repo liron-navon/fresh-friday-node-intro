@@ -52,7 +52,7 @@ const eventHandlers = {
     },
     // when a new user joins
     userJoined({ data }) {
-        usersInChat.push(data);
+        usersInChat.push(data.user);
         updateUsersInChat();
     },
     // when a user leaves

@@ -63,7 +63,7 @@ const actionHandlers = {
             users: sockets.map(ws => ws.context.user)
         });
         sockets.push(ws);
-        emitToAll(events.userJoined, user);
+        emitToAll(events.userJoined, { user });
     },
     // create a new message and tell everyone about it
     new(message, ws) {
